@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Showtime List</title>
+</head>
+<body>
+<h1>Showtime List</h1>
+
+<!-- Filter Form -->
+<form th:action="@{/showtimes}" method="get">
+  <label for="movie">Movie:</label>
+  <select id="movie" name="movieId">
+    <option value="" th:text="'All Movies'"></option>
+    <option th:each="movie : ${movies}" th:value="${movie.id}" th:text="${movie.title}"></option>
+  </select>
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date">
+  <label for="screenRoom">Screen Room:</label>
+  <select id="screenRoom" name="screenRoomId">
+    <option value="" th:text="'All Rooms'"></option>
+    <option th:each="screenRoom : ${screenRooms}" th:value="${screenRoom.id}" th:text="${screenRoom.name}"></option>
+  </select>
+  <button type="submit">Filter</button>
+</form>
+
+<!-- Showtime List -->
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Movie</th>
+    <th>Screen Room</th>
+    <th>Start Time</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="showtime : ${showtimes}">
+    <td th:text="${showtime.id}"></td>
+    <td th:text="${showtime.movie.title}"></td>
+    <td th:text="${showtime.screenRoom.name}"></td>
+    <td th:text="${showtime.startTime}"></td>
+    <td>
+      <a th:href="@{/showtimes/edit/{id}(id=${showtime.id})}">Edit</a>
+      <form th:action="@{/showtimes/delete/{id}(id=${showtime.id})}" method="post" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a th:href="@{/showtimes/add}">Add New Showtime</a>
+</body>
+</html>

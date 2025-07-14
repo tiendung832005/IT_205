@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flights</title>
+</head>
+<body>
+<h1>Available Flights</h1>
+<ul>
+    <li th:each="flight : ${flights}">
+        <p th:text="'Flight Number: ' + ${flight.flightNumber}"></p>
+        <p th:text="'Departure: ' + ${flight.departure}"></p>
+        <p th:text="'Destination: ' + ${flight.destination}"></p>
+        <p th:text="'Price: $' + ${flight.price}"></p>
+        <form th:action="@{/flights/book}" method="post">
+            <input type="hidden" name="flightId" th:value="${flight.id}">
+            <input type="text" name="customerName" placeholder="Your Name">
+            <input type="text" name="customerPhone" placeholder="Your Phone">
+            <button type="submit">Book</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

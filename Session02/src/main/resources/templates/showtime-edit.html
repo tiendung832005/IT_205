@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Showtime</title>
+</head>
+<body>
+<h1>Edit Showtime</h1>
+<form th:action="@{/showtimes/edit/{id}(id=${showtime.id})}" method="post">
+  <label for="movie">Movie:</label>
+  <select id="movie" name="movieId" th:each="movie : ${movies}" th:value="${movie.id}" th:text="${movie.title}" th:attr="selected=${movie.id == showtime.movie.id}" required></select><br>
+  <label for="screenRoom">Screen Room:</label>
+  <select id="screenRoom" name="screenRoomId" th:each="screenRoom : ${screenRooms}" th:value="${screenRoom.id}" th:text="${screenRoom.name}" th:attr="selected=${screenRoom.id == showtime.screenRoom.id}" required></select><br>
+  <label for="startTime">Start Time:</label>
+  <input type="datetime-local" id="startTime" name="startTime" th:value="${showtime.startTime}" required><br>
+  <button type="submit">Update</button>
+</form>
+<a th:href="@{/showtimes}">Back to Showtime List</a>
+</body>
+</html>

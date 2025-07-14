@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Books</title>
+</head>
+<body>
+<h1>Category Books</h1>
+<ul>
+    <li th:each="categoryBook : ${categoryBooks}">
+        <a th:href="@{/category-books/{id}(id=${categoryBook.cateBookId})}" th:text="${categoryBook.cateBookName}"></a>
+    </li>
+</ul>
+</body>
+</html>

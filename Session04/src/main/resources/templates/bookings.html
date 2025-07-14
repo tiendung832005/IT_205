@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings</title>
+</head>
+<body>
+<h1>Your Bookings</h1>
+<ul>
+    <li th:each="booking : ${bookings}">
+        <p th:text="'Flight Number: ' + ${booking.flight.flightNumber}"></p>
+        <p th:text="'Customer Name: ' + ${booking.customerName}"></p>
+        <p th:text="'Status: ' + ${booking.status}"></p>
+        <form th:action="@{/flights/cancel}" method="get">
+            <input type="hidden" name="bookingId" th:value="${booking.id}">
+            <button type="submit">Cancel</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>
