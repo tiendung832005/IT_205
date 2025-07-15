@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Bài 5</h1>
+    <p>
+        | STT | Endpoint         | Method   | Dữ liệu gửi / Tham số                                                       | Kết quả mong đợi           | Kết quả thực tế              | Ghi chú               |
+        | --- | ---------------- | -------- | --------------------------------------------------------------------------- | -------------------------- | ---------------------------- | --------------------- |
+        | 1   | `/api/books`     | `POST`   | `{ "title": "Clean Code", "author": "Robert C. Martin", "price": 299000 }`  | `201 Created`              | ✅ Trả về 201 + JSON Book mới | Tạo sách thành công   |
+        | 2   | `/api/books`     | `POST`   | `{ "title": "", "author": "A", "price": 100000 }`                           | `400 Bad Request`          | ✅ Trả về 400                 | Lỗi do thiếu tiêu đề  |
+        | 3   | `/api/books/1`   | `GET`    | —                                                                           | Trả về thông tin sách ID=1 | ✅ Trả về đúng dữ liệu sách   | OK                    |
+        | 4   | `/api/books/999` | `GET`    | —                                                                           | `404 Not Found`            | ✅ Trả về 404                 | Không tìm thấy sách   |
+        | 5   | `/api/books`     | `GET`    | —                                                                           | Danh sách tất cả sách      | ✅ Trả về mảng JSON           | OK                    |
+        | 6   | `/api/books/1`   | `PUT`    | `{ "title": "Clean Architecture", "author": "Uncle Bob", "price": 350000 }` | `200 OK`                   | ✅ Cập nhật thành công        | Dữ liệu đã thay đổi   |
+        | 7   | `/api/books/1`   | `DELETE` | —                                                                           | `204 No Content`           | ✅ Trả về 204, không có body  | Xóa thành công        |
+        | 8   | `/api/books/999` | `DELETE` | —                                                                           | `404 Not Found`            | ✅ Trả về 404                 | Không tìm thấy để xóa |
+
+    </p>
+</body>
+</html>
