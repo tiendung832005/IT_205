@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Bài 1</h1>
+    <p>
+        ### Tài liệu hướng dẫn đặt tên endpoint cho API quản lý sách
+
+        #### Nguyên tắc chung
+        1. **Sử dụng danh từ số nhiều** để đại diện cho resource (ví dụ: `books`, `authors`, `categories`).
+        2. **Tuân thủ chuẩn RESTful**:
+        - Sử dụng phương thức HTTP để xác định hành động (GET, POST, PUT, DELETE).
+        - Không thêm động từ vào URL (ví dụ: không dùng `/getBooks`, `/createBook`).
+        3. **Sử dụng cấu trúc phân cấp** để thể hiện mối quan hệ giữa các resource (ví dụ: sách thuộc về một tác giả).
+        4. **Sử dụng `snake_case` hoặc `kebab-case`** để đặt tên endpoint (ưu tiên `kebab-case`).
+
+        ---
+
+        #### Định nghĩa các endpoint
+
+        ##### 1. **Resource: Sách (`books`)**
+        | HTTP Method | Endpoint               | Mô tả                              |
+        |-------------|------------------------|-------------------------------------|
+        | GET         | `/books`               | Lấy danh sách tất cả các sách       |
+        | GET         | `/books/{id}`          | Lấy thông tin chi tiết của một sách |
+        | POST        | `/books`               | Thêm một sách mới                   |
+        | PUT         | `/books/{id}`          | Cập nhật thông tin của một sách     |
+        | DELETE      | `/books/{id}`          | Xóa một sách                        |
+
+        ##### 2. **Resource: Tác giả (`authors`)**
+        | HTTP Method | Endpoint               | Mô tả                              |
+        |-------------|------------------------|-------------------------------------|
+        | GET         | `/authors`             | Lấy danh sách tất cả các tác giả    |
+        | GET         | `/authors/{id}`        | Lấy thông tin chi tiết của một tác giả |
+        | POST        | `/authors`             | Thêm một tác giả mới                |
+        | PUT         | `/authors/{id}`        | Cập nhật thông tin của một tác giả  |
+        | DELETE      | `/authors/{id}`        | Xóa một tác giả                     |
+        | GET         | `/authors/{id}/books`  | Lấy danh sách sách của một tác giả  |
+
+        ##### 3. **Resource: Thể loại (`categories`)**
+        | HTTP Method | Endpoint               | Mô tả                              |
+        |-------------|------------------------|-------------------------------------|
+        | GET         | `/categories`          | Lấy danh sách tất cả các thể loại   |
+        | GET         | `/categories/{id}`     | Lấy thông tin chi tiết của một thể loại |
+        | POST        | `/categories`          | Thêm một thể loại mới               |
+        | PUT         | `/categories/{id}`     | Cập nhật thông tin của một thể loại |
+        | DELETE      | `/categories/{id}`     | Xóa một thể loại                    |
+        | GET         | `/categories/{id}/books` | Lấy danh sách sách thuộc thể loại   |
+
+        ---
+
+        #### Ví dụ
+        - **Lấy danh sách sách**: `GET /books`
+        - **Thêm một sách mới**: `POST /books`
+        - **Cập nhật thông tin sách có ID = 1**: `PUT /books/1`
+        - **Xóa sách có ID = 1**: `DELETE /books/1`
+        - **Lấy danh sách sách của tác giả có ID = 2**: `GET /authors/2/books`
+    </p>
+</body>
+</html>
