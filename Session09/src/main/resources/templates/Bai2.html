@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai2</title>
+</head>
+<body>
+    <p>
+        | Cấp Độ Log | Mô Tả Ngắn Gọn                                                | Khi Nào Sử Dụng                                                                  | Ví Dụ Cụ Thể                                                                          |
+        | ---------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+        | **TRACE**  | Siêu chi tiết, theo dõi từng bước nhỏ trong ứng dụng.         | Dùng để **debug chuyên sâu**, theo dõi từng dòng code, luồng xử lý hoặc gọi hàm. | Ghi lại các bước bên trong một hàm đệ quy phức tạp hoặc các event nhỏ trong hệ thống. |
+        | **DEBUG**  | Dành cho thông tin phục vụ gỡ lỗi trong quá trình phát triển. | Dùng khi muốn theo dõi **biến, trạng thái hoặc luồng xử lý chính** để debug.     | Log giá trị của một biến sau khi xử lý xong API: `DEBUG: result = 42`                 |
+        | **INFO**   | Thông tin bình thường, mô tả hoạt động của hệ thống.          | Ghi lại **các hành vi bình thường, có ý nghĩa với người vận hành**.              | `INFO: Người dùng A đã đăng nhập thành công` hoặc `INFO: Cron job chạy lúc 12:00`.    |
+        | **WARN**   | Cảnh báo, có gì đó "không ổn" nhưng hệ thống vẫn chạy được.   | Dùng khi xảy ra **trường hợp không lý tưởng**, có thể gây lỗi sau này.           | `WARN: Không tìm thấy avatar người dùng, dùng ảnh mặc định`                           |
+        | **ERROR**  | Lỗi nghiêm trọng khiến chức năng nào đó **thất bại**.         | Dùng khi xảy ra lỗi gây mất chức năng, nhưng ứng dụng vẫn **chạy tiếp** được.    | `ERROR: Không kết nối được tới database khi đăng nhập`                                |
+        | **FATAL**  | Lỗi **nghiêm trọng nhất**, ứng dụng có thể phải dừng.         | Khi xảy ra sự cố khiến **toàn bộ hệ thống không thể tiếp tục chạy**.             | `FATAL: Không thể load file cấu hình chính, thoát chương trình.`                      |
+
+    </p>
+</body>
+</html>
