@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p>
+    | Trường | Ý nghĩa                                                                     |
+    | ------ | --------------------------------------------------------------------------- |
+    | `sub`  | (Subject) ID của người dùng. Trong hệ thống → `userId`.                     |
+    | `name` | Tên người dùng → hiển thị phía client (nếu cần).                            |
+    | `iat`  | (Issued At) Thời điểm token được tạo (UNIX timestamp).                      |
+    | `exp`  | (Expiration) Thời điểm token hết hạn. Cực kỳ quan trọng để bảo vệ hệ thống. |
+
+
+    2. Rủi ro bảo mật nếu lộ payload
+    - Payload của JWT không mã hóa, chỉ mã hóa base64 → ai cũng có thể đọc được!
+
+    Nếu bạn để thông tin nhạy cảm như:
+
+    Mật khẩu, email, số CCCD, token truy cập khác, role admin,...
+
+    → Bị lộ thông tin ngay lập tức nếu JWT bị intercept hoặc lấy được từ localStorage.
+
+    - Hậu quả:
+
+    Lộ thông tin người dùng.
+
+    Bị tấn công giả mạo (spoofing).
+
+    Dùng token để truy cập trái phép nếu chưa hết hạn.
+
+
+  </p>
+</body>
+</html>

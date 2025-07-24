@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        // Expired JWT
+        {
+        "error": "Unauthorized",
+        "message": "JWT token expired",
+        "status": 401
+        }
+
+        // Modified JWT
+        {
+        "error": "Unauthorized",
+        "message": "Invalid JWT signature",
+        "status": 401
+        }
+
+        // Malformed JWT
+        {
+        "error": "Unauthorized",
+        "message": "Malformed JWT token",
+        "status": 401
+        }
+
+        // Unsupported JWT
+        {
+        "error": "Unauthorized",
+        "message": "Unsupported JWT token",
+        "status": 401
+        }
+
+        // Empty JWT
+        {
+        "error": "Unauthorized",
+        "message": "JWT token is missing",
+        "status": 401
+        }
+    </p>
+</body>
+</html>

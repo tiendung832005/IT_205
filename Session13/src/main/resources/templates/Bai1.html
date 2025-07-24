@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        1. JWT là gì?
+
+        JWT (JSON Web Token) là một chuẩn mở dùng để truyền thông tin xác thực và thông tin người dùng giữa các bên dưới dạng chuỗi JSON được mã hóa và ký (sign). Dữ liệu trong JWT có thể được xác minh và tin tưởng vì nó đã được ký bằng khóa bí mật hoặc cặp khóa public/private.
+
+        - Điểm mạnh:
+
+        Nhẹ, dễ truyền qua HTTP header.
+
+        Không cần lưu phiên ở server (stateless).
+
+        Dễ tích hợp với các hệ thống phân tán, microservice.
+
+        - Điểm yếu:
+
+        Không thể thu hồi (revoke) token dễ dàng.
+
+        Nếu để lộ secret key → toàn bộ hệ thống bị lộ.
+
+        Token kích thước lớn hơn session ID truyền thống.
+
+        3. Trường hợp sử dụng phổ biến:
+
+        Xác thực người dùng (Authentication) → thay thế session truyền thống.
+
+        Ủy quyền truy cập API (Authorization).
+
+        Giao tiếp giữa các microservices (đảm bảo xác thực trong từng request).
+
+        Single Sign-On (SSO) → người dùng đăng nhập một nơi, dùng mọi nơi.
+    </p>
+</body>
+</html>

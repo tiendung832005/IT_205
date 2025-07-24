@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        1. Client gửi thông tin đăng nhập
+        Client nhập username/password, gửi yêu cầu POST /login tới server.
+
+        2. Server kiểm tra thông tin và tạo JWT
+        Server kiểm tra thông tin đăng nhập (so khớp DB).
+
+        Nếu đúng → tạo JWT gồm:
+
+        Header: Loại token & thuật toán ký.
+
+        Payload: Chứa thông tin người dùng (id, role, exp...).
+
+        Signature: Ký bằng secret key.
+
+        3. Client lưu JWT
+        Client lưu token trong:
+
+        LocalStorage (SPA),
+
+        Cookie (nếu muốn gửi tự động mỗi request).
+
+         4. Client gửi token khi gọi API
+        Mỗi lần client gọi API cần xác thực → đính kèm JWT:
+
+        http
+        Sao chép
+        Chỉnh sửa
+
+        5. Server kiểm tra token
+        Server nhận JWT → thực hiện:
+
+        Giải mã token (decode).
+
+        Xác minh chữ ký với secret key.
+
+        Kiểm tra thời gian hết hạn (exp).
+
+        Đọc thông tin trong payload (ví dụ userId, role).
+
+        6. Trả dữ liệu hoặc từ chối
+        Nếu token hợp lệ → trả về dữ liệu được yêu cầu.
+
+        Nếu token sai, hết hạn hoặc giả mạo → trả về 401 Unauthorized.
+    </p>
+</body>
+</html>
